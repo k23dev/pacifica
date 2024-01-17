@@ -1,0 +1,37 @@
+TODO
+
+1. Cargar los modelos de
+
+Targets + t_data
+Commands + c_args
+Directiva = Commands->args Asociados con Target->t_data
+
+2. Cargar cargar esos modelos con archivos. Estos modelos están realizados en .toml
+
+3. Ejecutar la directiva y mostrar el resultado.
+
+4. Guardar el log de esas directivas ejecutadas.
+
+5. Se muestra un menú principal de la app:
+
+- Targets
+-- Crear target
+-- Cargar target
+-- Nuevo data de target
+-- Editar data del target
+-- eliminar
+- Command
+-- Crear comando
+-- Cargar comando
+-- Nuevo data de comando
+-- Editar data del comando
+-- eliminar
+- Directiva
+-- Ejecutar directiva
+-- Nueva directiva
+-- Editar directiva
+-- Eliminar directiva
+- Logs
+
+Tiene que existir la opción de que si al momento de ejecutar se pasa un flag se entra directamente a esa parte: -t -c -d (Target, Command , directiva)
+

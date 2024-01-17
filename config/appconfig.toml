@@ -1,0 +1,12 @@
+# App config
+app_name="Pacifica"
+app_version="0.0.1"
+
+[db.local]
+    connName="local"
+    engine="sqlite"
+    host=""
+    port=""
+    user=""
+    password=""
+    dbname="config"

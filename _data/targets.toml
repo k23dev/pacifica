@@ -1,0 +1,11 @@
+[target.Rosita]
+    field.Name="Email"
+    field.Value="example@domain.com"
+    field.Name="IP"
+    field.Value="10.10.10.01"
+    field.Name="website"
+    field.Value="www.domainname.com"
+
+[target.Veterinaria]
+    field.Name="Email"
+    field.Value="example@veteri.com"
