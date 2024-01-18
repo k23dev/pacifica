@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/k23dev/pacifica/pkg/go4error.ModelError"
+	"github.com/k23dev/go4it/go4error"
 	"gorm.io/gorm"
 )
 
@@ -44,7 +44,7 @@ func (c *Command) FindOne(db *gorm.DB, id int) (*Command, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Command",
 			Code:      0,
-			Message:   go4error.ModelError.MsgIDNotFound(id),
+			Message:   go4error.MsgIDNotFound(id),
 		}
 	}
 	return &Command, nil
@@ -57,7 +57,7 @@ func (c *Command) FindAll(db *gorm.DB) ([]Command, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Command",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return commands, nil
@@ -71,7 +71,7 @@ func (c *Command) FindAllPagination(db *gorm.DB, itemsPerPage, currentPage int) 
 		return nil, &go4error.ModelError{
 			ModelName: "Command",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return &commands, nil

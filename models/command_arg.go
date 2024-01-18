@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/k23dev/pacifica/pkg/go4error.ModelError"
+	"github.com/k23dev/go4it/go4error"
 	"gorm.io/gorm"
 )
 
@@ -55,7 +55,7 @@ func (s *Command_arg) FindOne(db *gorm.DB, id int) (*Command_arg, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Command_arg",
 			Code:      0,
-			Message:   go4error.ModelError.MsgIDNotFound(id),
+			Message:   go4error.MsgIDNotFound(id),
 		}
 	}
 	return &command_arg, nil
@@ -68,7 +68,7 @@ func (s *Command_arg) FindAll(db *gorm.DB) ([]Command_arg, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Command_arg",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return command_args, nil
@@ -80,7 +80,7 @@ func (s *Command_arg) FindAllFiltered(db *gorm.DB, CommandID uint) ([]Command_ar
 		return nil, &go4error.ModelError{
 			ModelName: "Command_arg",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return command_args, nil
@@ -94,7 +94,7 @@ func (s *Command_arg) FindAllPagination(db *gorm.DB, itemsPerPage, currentPage i
 		return nil, &go4error.ModelError{
 			ModelName: "Command_arg",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return &command_args, nil
@@ -155,7 +155,7 @@ func (s *Command_arg) FindAllByCommandID(db *gorm.DB, id uint) (*[]Command_arg, 
 		return nil, &go4error.ModelError{
 			ModelName: "Command_arg",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return list, nil

@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 
+	"github.com/k23dev/go4it/go4error"
 	"gorm.io/gorm"
 )
 
@@ -49,7 +50,7 @@ func (c *Category) FindAll(db *gorm.DB) ([]Category, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Category",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return categories, nil
@@ -63,7 +64,7 @@ func (c *Category) FindAllPagination(db *gorm.DB, itemsPerPage, currentPage int)
 		return nil, &go4error.ModelError{
 			ModelName: "Category",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return &categories, nil

@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/k23dev/pacifica/pkg/go4error.ModelError"
+	"github.com/k23dev/go4it/go4error"
 	"gorm.io/gorm"
 )
 
@@ -20,10 +20,6 @@ type TargetDTO struct {
 
 type TargetCounter struct {
 	Total int
-}
-
-type TargetFile struct {
-	Target map[string][]Target_fieldFile `toml:"target" json:"target"`
 }
 
 func NewTarget() *Target {
@@ -43,7 +39,7 @@ func (t *Target) FindOne(db *gorm.DB, id int) (*Target, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga",
 			Code:      0,
-			Message:   go4error.ModelError.MsgIDNotFound(id),
+			Message:   go4error.MsgIDNotFound(id),
 		}
 	}
 	return &tanga, nil
@@ -56,7 +52,7 @@ func (t *Target) FindAll(db *gorm.DB) ([]Target, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return tangas, nil
@@ -70,7 +66,7 @@ func (t *Target) FindAllPagination(db *gorm.DB, itemsPerPage, currentPage int) (
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return &tangas, nil

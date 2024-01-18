@@ -1,0 +1,36 @@
+{
+    "commands":[
+        [
+            {
+                "name":"nmap",
+                "path":"nmap",
+                "is_sudo":false,
+                "comment":"some comment",
+                "args":[
+                    {
+                        "method":"email",
+                        "input_type":"string",
+                        "is_flag":false,
+                        "order":0,
+                        "comment":""
+                    }
+                ]
+            },
+            {
+                "name":"python",
+                "path":"python3",
+                "is_sudo":false,
+                "comment":"some comment",
+                "args":[
+                    {
+                        "method":"http.server",
+                        "input_type":"string",
+                        "is_flag":false,
+                        "order":1,
+                        "comment":""
+                    }
+                ]
+            }
+        ]
+    ]
+}

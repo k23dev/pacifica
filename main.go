@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/k23dev/go4it"
 	"github.com/k23dev/pacifica/app"
-	"github.com/k23dev/pacifica/cmd"
 )
 
 func main() {
@@ -14,9 +13,11 @@ func main() {
 	pacifica.Connect2Db("local")
 	pacifica.DB.SetPrimaryDB(0)
 
-	menu := cmd.NewCmdMenu()
+	//menu := cmd.NewCmdMenu()
 
-	app.ReadTargetFile()
+	app.ReadTargetsFile("")
+	app.ReadCommandsFile("")
+	app.ReadDirectivesFile("")
 
 	//cmd.Banner(pacifica.Config.App_name, app.Config.App_version)
 	//menu.ShowMenu()

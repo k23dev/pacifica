@@ -1,0 +1,22 @@
+{
+    "targets":[
+        [
+            {
+                "name":"Rosita",
+                "fields":[
+                    { "name":"email", "value":"rosita@yahoo.com" },
+                    { "name":"web", "value":"www.rosita.com" },
+                    { "name":"ip", "value":"10.10.10.10" }
+                ]
+            },
+            {
+                "name":"Mariano",
+                "fields":[
+                    { "name":"email", "value":"mariano@yahoo.com" },
+                    { "name":"web", "value":"www.mariano.com" },
+                    { "name":"ip", "value":"99.99.99.99"}
+                ]
+            }
+        ]
+    ]
+}

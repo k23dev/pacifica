@@ -3,8 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/k23dev/pacifica/pkg/go4error.ModelError"
-	"github.com/k23dev/pacifica/pkg/tango_debug"
+	"github.com/k23dev/go4it/go4error"
 	"gorm.io/gorm"
 )
 
@@ -26,11 +25,6 @@ type Target_fieldCounter struct {
 	Total int
 }
 
-type Target_fieldFile struct {
-	Name  string `toml:"name" json:"name"`
-	Value string `toml:"value" json:"value"`
-}
-
 func NewTarget_field() *Target_field {
 	return &Target_field{}
 }
@@ -48,10 +42,9 @@ func (t *Target_field) FindOne(db *gorm.DB, id int) (*Target_field, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga_field",
 			Code:      0,
-			Message:   go4error.ModelError.MsgIDNotFound(id),
+			Message:   go4error.MsgIDNotFound(id),
 		}
 	}
-	tango_debug.Struct("tanga field", tanga_field)
 	return &tanga_field, nil
 }
 
@@ -62,10 +55,9 @@ func (t *Target_field) FindAllFiltered(db *gorm.DB, tangaID uint) (*Target_field
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga_field",
 			Code:      0,
-			Message:   go4error.ModelError.MsgIDNotFound(int(tangaID)),
+			Message:   go4error.MsgIDNotFound(int(tangaID)),
 		}
 	}
-	tango_debug.Struct("tanga field", tanga_field)
 	return &tanga_field, nil
 }
 
@@ -76,7 +68,7 @@ func (t *Target_field) FindAll(db *gorm.DB) ([]Target_field, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga_field",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return tanga_fields, nil
@@ -90,7 +82,7 @@ func (t *Target_field) FindAllPagination(db *gorm.DB, itemsPerPage, currentPage 
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga_field",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return &tanga_fields, nil
@@ -98,7 +90,6 @@ func (t *Target_field) FindAllPagination(db *gorm.DB, itemsPerPage, currentPage 
 
 func (t *Target_field) Create(db *gorm.DB, dto Target_fieldDTO) (*Target_field, error) {
 	t.SatinizeDTOCreate(&dto)
-	tango_debug.Struct("dto", dto)
 	tanga_field := Target_field{
 		Name:    dto.Name,
 		FValue:  dto.FValue,
@@ -110,7 +101,6 @@ func (t *Target_field) Create(db *gorm.DB, dto Target_fieldDTO) (*Target_field, 
 
 func (t *Target_field) Update(db *gorm.DB, id int, dto Target_fieldDTO) (*Target_field, error) {
 	t.SatinizeDTOUpdate(&dto)
-	tango_debug.Struct("dto", dto)
 	db.Model(&Target_field{}).Where("ID =?", id).Update("name", dto.Name).Update("fvalue", dto.FValue).Update("tanga_id", dto.TangaID)
 	return t, nil
 }
@@ -146,7 +136,7 @@ func (s *Target_field) FindAllByTangaFieldID(db *gorm.DB, id uint) (*[]Target_fi
 		return nil, &go4error.ModelError{
 			ModelName: "Tanga_field",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return list, nil

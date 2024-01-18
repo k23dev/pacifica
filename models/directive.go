@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/k23dev/pacifica/pkg/go4error.ModelError"
+	"github.com/k23dev/go4it/go4error"
 	"gorm.io/gorm"
 )
 
@@ -36,7 +36,7 @@ func (d *Directive) FindOne(db *gorm.DB, id int) (*Directive, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Directive",
 			Code:      0,
-			Message:   go4error.ModelError.MsgIDNotFound(id),
+			Message:   go4error.MsgIDNotFound(id),
 		}
 	}
 	return &directive, nil
@@ -49,7 +49,7 @@ func (d *Directive) FindAll(db *gorm.DB) ([]Directive, error) {
 		return nil, &go4error.ModelError{
 			ModelName: "Directive",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return directives, nil
@@ -63,7 +63,7 @@ func (d *Directive) FindAllPagination(db *gorm.DB, itemsPerPage, currentPage int
 		return nil, &go4error.ModelError{
 			ModelName: "Directive",
 			Code:      0,
-			Message:   go4error.ModelError.MsgZeroRecordsFound(),
+			Message:   go4error.MsgZeroRecordsFound(),
 		}
 	}
 	return &directives, nil
