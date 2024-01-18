@@ -3,7 +3,7 @@
         [
             {
                 "name":"nmap",
-                "path":"nmap",
+                "path":"/usr/bin/nmap",
                 "is_sudo":false,
                 "comment":"some comment",
                 "args":[
@@ -18,7 +18,7 @@
             },
             {
                 "name":"python",
-                "path":"python3",
+                "path":"/bin/python3",
                 "is_sudo":false,
                 "comment":"some comment",
                 "args":[

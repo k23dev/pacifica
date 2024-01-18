@@ -1,13 +1,11 @@
 package app
 
 import (
-	"fmt"
-
 	"github.com/k23dev/go4it/interact"
 	"github.com/k23dev/pacifica/models"
 )
 
-func ReadTargetsFile(filepath string) {
+func ReadTargetsFile(filepath string) *models.TargetFile {
 	targets := &models.TargetFile{}
 
 	if filepath == "" {
@@ -16,10 +14,10 @@ func ReadTargetsFile(filepath string) {
 
 	interact.ReadAndParseJson(filepath, targets)
 
-	fmt.Printf("%+v\n", targets)
+	return targets
 }
 
-func ReadCommandsFile(filepath string) {
+func ReadCommandsFile(filepath string) *models.CommandFile {
 	commands := &models.CommandFile{}
 
 	if filepath == "" {
@@ -28,17 +26,17 @@ func ReadCommandsFile(filepath string) {
 
 	interact.ReadAndParseJson(filepath, commands)
 
-	fmt.Printf("%+v\n", commands)
+	return commands
 }
 
-func ReadDirectivesFile(filepath string) {
-	commands := &models.CommandFile{}
+func ReadDirectivesFile(filepath string) *models.DirectiveFile {
+	directives := &models.DirectiveFile{}
 
 	if filepath == "" {
-		filepath = "./_data/commands.json"
+		filepath = "./_data/directives.json"
 	}
 
-	interact.ReadAndParseJson(filepath, commands)
+	interact.ReadAndParseJson(filepath, directives)
 
-	fmt.Printf("%+v\n", commands)
+	return directives
 }

@@ -1,7 +1,7 @@
 package models
 
 type CommandFile struct {
-	Commands [][]struct {
+	Command [][]struct {
 		Name    string `json:"name"`
 		Path    string `json:"path"`
 		IsSudo  bool   `json:"is_sudo"`
